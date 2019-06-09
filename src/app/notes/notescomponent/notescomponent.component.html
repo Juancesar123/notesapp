@@ -1,0 +1,58 @@
+<section class="section">
+  <button class="button is-info is-outlined" (click)="togglebutton()">Add Notes</button>
+  <div class="modal" [ngClass]="status ? 'is-active' : ''">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+        <p class="modal-card-title">Add Your Notes</p>
+        <button class="delete" aria-label="close" (click)="togglebutton()"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="field">
+                <label class="label">Judul</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Text input" [(ngModel)]="nama">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Notes</label>
+                <div class="control">
+                        <textarea class="textarea" placeholder="10 lines of textarea" rows="10" [(ngModel)]="alamat"></textarea>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+        <button class="button is-success" (click)="saveData()">Save changes</button>
+        <button class="button" (click)="togglebutton()">Cancel</button>
+        </footer>
+    </div>
+</div>
+<br>
+<br>
+<div class="row">
+  <div class="card">
+    <header class="card-header">
+      <p class="card-header-title">
+        Component
+      </p>
+      <a href="#" class="card-header-icon" aria-label="more options">
+        <span class="icon">
+          <i class="fas fa-angle-down" aria-hidden="true"></i>
+        </span>
+      </a>
+    </header>
+    <div class="card-content">
+      <div class="content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+        <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
+        <br>
+        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+      </div>
+    </div>
+    <footer class="card-footer">
+      <a href="#" class="card-footer-item">Edit</a>
+      <a href="#" class="card-footer-item">Delete</a>
+    </footer>
+  </div>
+</div>
+</section>
