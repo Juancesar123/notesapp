@@ -1,0 +1,46 @@
+<section class="hero is-success is-fullheight">
+  <div class="hero-body">
+      <div class="container has-text-centered">
+          <div class="column is-4 is-offset-4">
+              <h3 class="title has-text-grey">Login</h3>
+              <p class="subtitle has-text-grey">Please login to proceed.</p>
+              <div class="box">
+                  <figure class="avatar">
+                      <img src="https://placehold.it/128x128">
+                  </figure>
+                  <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                      <div class="field">
+                          <div class="control">
+                              <input class="input is-large" formControlName="email" type="email" placeholder="Your Email" autofocus="" [ngClass]="{ 'is-danger': submitted && f.email.errors }" [(ngModel)]="email">
+                              <div *ngIf="submitted && f.email.errors" class="has-text-danger">
+                                  <div *ngIf="f.email.errors.required">Email is required</div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="field">
+                          <div class="control">
+                              <input class="input is-large" formControlName="password" type="password" placeholder="Your Password" [ngClass]="{ 'is-danger': submitted && f.password.errors }" [(ngModel)]="password">
+                              <div *ngIf="submitted && f.password.errors" class="has-text-danger">
+                                  <div *ngIf="f.password.errors.required">password is required</div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="field">
+                          <label class="checkbox">
+                             <input type="checkbox">
+                              Remember me
+                          </label>
+                      </div>
+                      <button class="button is-block is-info is-large is-fullwidth">Login</button>
+                  </form>
+              </div>
+              <p class="has-text-grey">
+                  <a routerLink='/register' routerLinkActive="is-active">Sign Up</a> &nbsp;·&nbsp;
+                  <a routerLink='/forgot-password'>Forgot Password</a> &nbsp;·&nbsp;
+                  <a href="../">Need Help?</a>
+              </p>
+          </div>
+      </div>
+  </div>
+</section>
