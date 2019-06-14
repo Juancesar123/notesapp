@@ -16,6 +16,11 @@ const routes: Routes = [
   {
     path:'login',
     loadChildren:'./login/login.module#LoginModule'
+  },
+  {
+    path:'event',
+    loadChildren:'./event/event.module#EventModule',
+    canActivate:[RealtimeguardGuard]
   }
 ];
 

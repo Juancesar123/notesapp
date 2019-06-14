@@ -27,4 +27,7 @@ export class NotesService {
   removeNotes(id){
     this.feathers.service('notes').remove(id)
   }
+  updateNotes(data,id){
+    this.feathers.service('notes').patch(id, data);
+  }
 }

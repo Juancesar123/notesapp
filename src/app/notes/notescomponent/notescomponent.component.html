@@ -28,6 +28,59 @@
         </footer>
     </div>
 </div>
+<div class="modal" [ngClass]="status1 ? 'is-active' : ''">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+      <header class="modal-card-head">
+      <p class="modal-card-title">Edit Your Notes</p>
+      <button class="delete" aria-label="close" (click)="closebutton()"></button>
+      </header>
+      <section class="modal-card-body">
+          <div class="field">
+              <label class="label">Judul</label>
+              <div class="control">
+                  <input class="input" type="text" placeholder="Text input" [(ngModel)]="title">
+              </div>
+          </div>
+          <div class="field">
+              <label class="label">Notes</label>
+              <div class="control">
+                      <textarea class="textarea" placeholder="10 lines of textarea" rows="10" [(ngModel)]="description"></textarea>
+              </div>
+          </div>
+      </section>
+      <footer class="modal-card-foot">
+      <button class="button is-success" (click)="editNotes()">Save changes</button>
+      <button class="button" (click)="closebutton()">Cancel</button>
+      </footer>
+  </div>
+</div>
+<div class="modal" [ngClass]="status2 ? 'is-active' : ''">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+      <header class="modal-card-head">
+      <p class="modal-card-title">View Your Notes</p>
+      <button class="delete" aria-label="close" (click)="closebutton1()"></button>
+      </header>
+      <section class="modal-card-body">
+          <div class="field">
+              <label class="label">Judul</label>
+              <div class="control">
+                  <input class="input" type="text" placeholder="Text input" [(ngModel)]="title" disabled>
+              </div>
+          </div>
+          <div class="field">
+              <label class="label">Notes</label>
+              <div class="control">
+                      <textarea class="textarea" placeholder="10 lines of textarea" rows="10" [(ngModel)]="description" disabled></textarea>
+              </div>
+          </div>
+      </section>
+      <footer class="modal-card-foot">
+      <button class="button" (click)="closebutton1()">Cancel</button>
+      </footer>
+  </div>
+</div>
 <br>
 <br>
 <div class="columns is-multiline">
@@ -51,9 +104,9 @@
         </div>
       </div>
       <footer class="card-footer">
-        <a href="#" class="card-footer-item has-background-success has-text-white">Edit</a>
+        <a (click)="togglebutton1(message)" class="card-footer-item has-background-success has-text-white">Edit</a>
         <a (click)="deleteNotes(message)" class="card-footer-item has-background-danger has-text-white">Delete</a>
-        <a href="#" class="card-footer-item has-background-info has-text-white">View Detail</a>
+        <a (click)="togglebutton2(message)"  class="card-footer-item has-background-info has-text-white">View Detail</a>
       </footer>
     </div>
   </div>

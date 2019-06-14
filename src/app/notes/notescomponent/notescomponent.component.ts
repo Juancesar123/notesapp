@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { NotesService } from '../notes.service';
 import { Paginated } from '@feathersjs/feathers';
 import { map } from 'rxjs/operators';
+import { isNgTemplate } from '@angular/compiler';
 @Component({
   selector: 'app-notescomponent',
   templateUrl: './notescomponent.component.html',
@@ -17,6 +18,8 @@ export class NotescomponentComponent implements OnInit {
   title:String;
   description:String;
   data:any;
+  status2 : boolean = false;
+  id:String;
   constructor(private notesservice : NotesService) {
      // get messages from data service
      this.messages$ = notesservice.viewNotes().pipe(
@@ -42,10 +45,35 @@ export class NotescomponentComponent implements OnInit {
   togglebutton(){
     this.status = !this.status
   }
+  togglebutton1(item){
+    this.title = item.title,
+    this.description = item.description
+    this.id = item._id;
+    this.status1 = !this.status1
+  }
   closebutton(){
     this.status1 = !this.status1
   }
+  closebutton1(){
+    this.status2 = !this.status2
+  }
   deleteNotes(message){
     this.notesservice.removeNotes(message._id)
+  }
+  editNotes(){
+    this.data = {
+      title:this.title,
+      description:this.description
+    }
+    this.notesservice.updateNotes(this.data,this.id)
+  }
+  togglebutton2(item){
+    this.title = item.title,
+    this.description = item.description
+    this.id = item._id;
+    this.status2 = !this.status2
+  }
+  viewDetails(){
+
   }
 }
